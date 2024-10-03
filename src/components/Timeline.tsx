@@ -38,7 +38,11 @@ export default function Timeline() {
                 </h3>
               </div>
 
-              <Card className="w-full md:w-5/12 mt-6 md:mt-0 dark:bg-gray-800 relative z-10">
+              <Card
+                className={`w-full md:w-5/12 mt-6 md:mt-0 dark:bg-gray-800 relative z-10 ${
+                  index % 2 === 0 ? "mr-2" : "ml-2"
+                }`}
+              >
                 <CardHeader>
                   <CardTitle className="text-xl font-bold dark:text-white">
                     {item.title}

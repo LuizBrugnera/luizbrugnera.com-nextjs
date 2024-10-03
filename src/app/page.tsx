@@ -8,17 +8,23 @@ import {
   LinkedinIcon,
   MailIcon,
   MoonIcon,
+  PhoneIcon,
   SunIcon,
 } from "lucide-react";
 import { motion } from "framer-motion";
 import { skills, timeline } from "./data";
 import Timeline from "@/components/Timeline";
 import ProjectsCarousel from "@/components/ProjectsCarousel";
+import { SendMail } from "@/components/SendMail";
 
 export default function Portfolio() {
   const [theme, setTheme] = useState("light");
   const [typedText, setTypedText] = useState("");
+
   const fullText = "Desenvolvedor Full Stack";
+  const sendToLink = (link: string) => {
+    window.open(link, "_blank");
+  };
 
   useEffect(() => {
     const typeText = async () => {
@@ -27,6 +33,7 @@ export default function Portfolio() {
         await new Promise((resolve) => setTimeout(resolve, 100));
       }
     };
+
     typeText();
   }, []);
 
@@ -112,7 +119,7 @@ export default function Portfolio() {
                 scale: [1, 1.1, 1],
               }}
               transition={{
-                duration: 15,
+                duration: 25,
                 repeat: Infinity,
                 repeatType: "reverse",
               }}
@@ -126,7 +133,7 @@ export default function Portfolio() {
           </div>
           <div className="container mx-auto px-4 text-center relative z-10">
             <motion.h2
-              className="text-4xl font-bold mb-4 text-white"
+              className="text-4xl font-bold mb-4 text-white "
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
@@ -140,7 +147,7 @@ export default function Portfolio() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
             >
-              <span className="font-mono">{typedText}</span>
+              <span className="font-mono mr-2">{typedText}</span>
               <span className="animate-blink">|</span>
             </motion.p>
             <motion.div
@@ -149,11 +156,31 @@ export default function Portfolio() {
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.4 }}
             >
-              <Button className="bg-white text-purple-600 hover:bg-purple-100">
+              <Button
+                className="bg-white text-purple-600 hover:bg-purple-100"
+                onClick={() => sendToLink("https://github.com/LuizBrugnera")}
+              >
                 <GithubIcon className="mr-2 h-4 w-4" /> GitHub
               </Button>
-              <Button className="bg-white text-purple-600 hover:bg-purple-100">
+              <Button
+                className="bg-white text-purple-600 hover:bg-purple-100"
+                onClick={() =>
+                  sendToLink(
+                    "https://www.linkedin.com/in/luiz-ricardo-brugnera-8b6810236/"
+                  )
+                }
+              >
                 <LinkedinIcon className="mr-2 h-4 w-4" /> LinkedIn
+              </Button>
+              <Button
+                className="bg-white text-purple-600 hover:bg-purple-100"
+                onClick={() =>
+                  sendToLink(
+                    "https://wa.me/555499276395?text=Ol%C3%A1%2C%20vim%20pelo%20seu%20portf%C3%B3lio%21"
+                  )
+                }
+              >
+                <PhoneIcon className="mr-2 h-4 w-4" /> Whatsapp
               </Button>
             </motion.div>
           </div>
@@ -173,9 +200,15 @@ export default function Portfolio() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1 }}
                 >
-                  <Card className="text-center p-4 dark:bg-gray-700">
+                  <Card className="text-center  dark:bg-gray-700">
                     <CardContent>
-                      <span className="text-4xl mb-2">{skill.icon}</span>
+                      <div className="flex items-center justify-center">
+                        <img
+                          src={skill.icon}
+                          alt={skill.name}
+                          className="h-12 w-12 mt-6"
+                        />
+                      </div>
                       <p className="font-semibold dark:text-white">
                         {skill.name}
                       </p>
@@ -186,40 +219,8 @@ export default function Portfolio() {
             </div>
           </div>
         </section>
-
         <Timeline />
-
-        <section id="contact" className="py-20 bg-muted dark:bg-gray-800">
-          <div className="container mx-auto px-4 max-w-md">
-            <h2 className="text-3xl font-bold mb-8 text-center dark:text-white">
-              Contato
-            </h2>
-            <Card className="dark:bg-gray-700">
-              <CardContent className="p-6">
-                <form className="space-y-4">
-                  <input
-                    type="text"
-                    placeholder="Nome"
-                    className="w-full p-2 border rounded dark:bg-gray-600 dark:text-white dark:border-gray-500"
-                  />
-                  <input
-                    type="email"
-                    placeholder="Email"
-                    className="w-full p-2 border rounded dark:bg-gray-600 dark:text-white dark:border-gray-500"
-                  />
-                  <textarea
-                    placeholder="Mensagem"
-                    rows={4}
-                    className="w-full p-2 border rounded dark:bg-gray-600 dark:text-white dark:border-gray-500"
-                  ></textarea>
-                  <Button className="w-full dark:bg-gray-900 dark:text-white">
-                    Enviar Mensagem
-                  </Button>
-                </form>
-              </CardContent>
-            </Card>
-          </div>
-        </section>
+        <SendMail />
       </main>
 
       <footer className="bg-gray-100 dark:bg-gray-800 py-8">
@@ -229,14 +230,37 @@ export default function Portfolio() {
               &copy; 2024 Luiz Ricardo Brugnera. Todos os direitos reservados.
             </p>
             <div className="flex space-x-4 mt-4 md:mt-0">
-              <Button variant="ghost" size="icon" className="dark:text-white">
+              <Button
+                variant="ghost"
+                size="icon"
+                className="dark:text-white"
+                onClick={() => sendToLink("https://github.com/LuizBrugnera")}
+              >
                 <GithubIcon className="h-5 w-5" />
               </Button>
-              <Button variant="ghost" size="icon" className="dark:text-white">
+              <Button
+                variant="ghost"
+                size="icon"
+                className="dark:text-white"
+                onClick={() =>
+                  sendToLink(
+                    "https://www.linkedin.com/in/luiz-ricardo-brugnera-8b6810236/"
+                  )
+                }
+              >
                 <LinkedinIcon className="h-5 w-5" />
               </Button>
-              <Button variant="ghost" size="icon" className="dark:text-white">
-                <MailIcon className="h-5 w-5" />
+              <Button
+                variant="ghost"
+                size="icon"
+                className="dark:text-white"
+                onClick={() =>
+                  sendToLink(
+                    "https://wa.me/555499276395?text=Ol%C3%A1%2C%20vim%20pelo%20seu%20portf%C3%B3lio%21"
+                  )
+                }
+              >
+                <PhoneIcon className="h-5 w-5" />
               </Button>
             </div>
           </div>
