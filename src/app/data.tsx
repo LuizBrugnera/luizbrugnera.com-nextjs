@@ -1,68 +1,67 @@
+import reactIcon from "./assets/react.svg";
+import nextjsIcon from "./assets/nextjs.svg";
+import nodejsIcon from "./assets/node.svg";
+import pythonIcon from "./assets/python.svg";
+import typescriptIcon from "./assets/typescript.svg";
+import javascriptIcon from "./assets/javascript.svg";
+import sqlIcon from "./assets/sql.svg";
+import dockerIcon from "./assets/docker.svg";
+
 export const skills = [
-  { name: "React", icon: "⚛️" },
-  { name: "Node.js", icon: "🟩" },
-  { name: "Python", icon: "🐍" },
-  { name: "JavaScript", icon: "🟨" },
-  { name: "TypeScript", icon: "🔵" },
-  { name: "MongoDB", icon: "🍃" },
-  { name: "SQL", icon: "🗄️" },
-  { name: "Docker", icon: "🐳" },
+  { name: "React", icon: reactIcon.src as string },
+  { name: "Next.js", icon: nextjsIcon.src as string },
+  { name: "Node.js", icon: nodejsIcon.src as string },
+  { name: "JavaScript", icon: javascriptIcon.src as string },
+  { name: "TypeScript", icon: typescriptIcon.src as string },
+  { name: "Python", icon: pythonIcon.src as string },
+  { name: "SQL", icon: sqlIcon.src as string },
+  { name: "Docker", icon: dockerIcon.src as string },
 ];
 
 export const timeline = [
   {
-    year: "2020",
-    title: "Iniciou a carreira como Desenvolvedor Junior",
+    year: "2021",
+    title: "Iniciou a faculdade no IFSUL - Passo Fundo",
     description:
-      "Comecei minha jornada na empresa XYZ Tech, trabalhando principalmente com JavaScript e React. Participei de projetos menores e aprendi muito com desenvolvedores mais experientes.",
+      "Comecei minha jornada na faculdade, trabalhando principalmente com JavaScript e React.",
     achievements: [
       "Desenvolvi minha primeira aplicação React do zero",
       "Aprendi boas práticas de Git e trabalho em equipe",
-      "Participei de um hackathon interno da empresa",
-    ],
-  },
-  {
-    year: "2021",
-    title: "Promovido a Desenvolvedor Pleno",
-    description:
-      "Após um ano de crescimento rápido, fui promovido a Desenvolvedor Pleno. Comecei a liderar pequenas equipes em projetos e expandir meu conhecimento para o backend.",
-    achievements: [
-      "Liderei o desenvolvimento de uma API RESTful com Node.js",
-      "Implementei testes automatizados em projetos existentes",
-      "Ministrei workshops internos sobre React Hooks",
+      "Melhorei minhas soft skills e networking",
     ],
   },
   {
     year: "2022",
-    title: "Liderou projeto de e-commerce de grande escala",
+    title: "Entrei como bolsista de desenvolvimento no IFSUL",
     description:
-      "Fui designado como líder técnico de um projeto de e-commerce para um grande varejista. Este projeto foi um marco importante na minha carreira.",
+      "Após um ano de aprendizado, fui selecionado para uma bolsa para desenvolverdor, nela foi feito um projeto React e Node.js com foco em acessibilidade do usuário.",
     achievements: [
-      "Arquitetei uma solução escalável usando microserviços",
-      "Implementei CI/CD com GitHub Actions e Docker",
-      "Otimizei o desempenho do site, melhorando o tempo de carregamento em 40%",
+      "Desenvolvi uma API RESTful com Node.js",
+      "Implementei testes automatizados em projetos existentes",
+      "Aprendi a trabalhar em um codigo com varios desenvolvedores",
     ],
   },
   {
     year: "2023",
-    title: "Tornou-se Desenvolvedor Senior",
+    title:
+      "Entrei como estagiário de desenvolvimento REACT | NODE.JS | SCRUM na COMPASS ",
     description:
-      "Meu trabalho no projeto de e-commerce me rendeu uma promoção para Desenvolvedor Senior. Comecei a ter um papel mais estratégico na empresa.",
+      "Neste estágio, aprendi a trabalhar em equipes, liderar projetos e refinar minhas habilidades de desenvolvimento.",
     achievements: [
-      "Participei de decisões arquiteturais para novos projetos",
-      "Implementei práticas de DevOps em toda a equipe de desenvolvimento",
-      "Apresentei em uma conferência tech regional sobre escalabilidade em e-commerce",
+      "Arquitetei uma solução escalável usando microserviços e fiz o deploy na AWS",
+      "Implementei CI/CD com GitHub Actions e Docker",
+      "Consegui o certificado Cloud Practitioner na AWS",
     ],
   },
   {
     year: "2024",
-    title: "Iniciou mentoria de novos desenvolvedores",
+    title: "Entrei como desenvolvedor full stack na TWO COMMERCE",
     description:
-      "Além de minhas responsabilidades técnicas, comecei a mentorar desenvolvedores juniores e estagiários, ajudando a moldar a próxima geração de talentos na empresa.",
+      "Meu trabalho no projeto de agendamento via whatsapp SCHEDY, nele consegui muitas experiências com desenvolvimento full stack com Node.js e NestJS.",
     achievements: [
-      "Criei um programa de mentoria estruturado para novos contratados",
-      "Liderei a iniciativa de código aberto da empresa",
-      "Comecei a explorar novas tecnologias como IA e ML para futuros projetos",
+      "Participei de decisões arquiteturais do projeto",
+      "Implementei práticas de DevOps o deploy na AWS",
+      "Aprendi bastante ao implementar filas, cron jobs, autenticação, gerenciamento de seções, etc...",
     ],
   },
 ];
