@@ -53,12 +53,6 @@ export default function Portfolio() {
           </h1>
           <nav className="hidden md:flex space-x-4">
             <a
-              href="#about"
-              className="hover:text-primary dark:text-gray-300 dark:hover:text-white"
-            >
-              Sobre
-            </a>
-            <a
               href="#projects"
               className="hover:text-primary dark:text-gray-300 dark:hover:text-white"
             >

@@ -79,13 +79,14 @@ export const projects = [
   },
   {
     id: 2,
-    title: "Task Management App",
+    title: "Administração de histórico de Pacientes App",
     description:
       "A collaborative task management application with real-time updates, drag-and-drop functionality, and team collaboration features.",
     image: "/placeholder.svg?height=200&width=300",
-    technologies: ["React", "Firebase", "Material-UI", "Redux"],
-    demoLink: "https://example-taskmanager.com",
-    githubLink: "https://github.com/username/task-manager",
+    technologies: ["React", "Firebase", "TailwindCSS", "Material-UI"],
+    demoLink:
+      "https://patient-history-8hk4q7gl7-diabosmais22gmailcoms-projects.vercel.app/",
+    githubLink: "https://github.com/LuizBrugnera/patient-history",
   },
   {
     id: 3,

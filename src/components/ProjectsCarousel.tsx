@@ -86,32 +86,39 @@ export default function ProjectsCarousel() {
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                 >
                   <Card className="h-full dark:bg-gray-800">
-                    <CardHeader>
-                      <Image
-                        src={project.image}
-                        alt={project.title}
-                        width={300}
-                        height={200}
-                        className="rounded-t-lg mb-4"
-                      />
-                      <CardTitle className="text-xl font-bold dark:text-white">
-                        {project.title}
-                      </CardTitle>
-                      <CardDescription className="dark:text-gray-300">
-                        {project.description}
-                      </CardDescription>
-                    </CardHeader>
-                    <CardContent>
-                      <div className="flex flex-wrap gap-2 mb-4">
-                        {project.technologies.map((tech, index) => (
-                          <Badge key={index} variant="secondary">
-                            {tech}
-                          </Badge>
-                        ))}
-                      </div>
-                    </CardContent>
+                    <div className="min-h-[426px]">
+                      <CardHeader>
+                        <Image
+                          src={project.image}
+                          alt={project.title}
+                          width={300}
+                          height={200}
+                          className="rounded-t-lg mb-4"
+                        />
+                        <CardTitle className="text-xl font-bold dark:text-white">
+                          {project.title}
+                        </CardTitle>
+                        <CardDescription className="dark:text-gray-300">
+                          {project.description}
+                        </CardDescription>
+                      </CardHeader>
+                      <CardContent>
+                        <div className="flex flex-wrap gap-2 mb-4">
+                          {project.technologies.map((tech, index) => (
+                            <Badge key={index} variant="secondary">
+                              {tech}
+                            </Badge>
+                          ))}
+                        </div>
+                      </CardContent>
+                    </div>
                     <CardFooter className="flex justify-between">
-                      <Button asChild variant="outline" size="sm">
+                      <Button
+                        asChild
+                        variant="outline"
+                        size="sm"
+                        disabled={!project.demoLink}
+                      >
                         <a
                           href={project.demoLink}
                           target="_blank"
