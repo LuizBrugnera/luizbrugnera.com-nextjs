@@ -14,9 +14,9 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Luiz Ricardo Brugnera — Landings para negócios locais",
+  title: "Luiz Ricardo Brugnera — a página que o anúncio deveria abrir",
   description:
-    "Landing pages mobile-first com WhatsApp na cara, prontas para Instagram e tráfego pago. Sites e sistemas simples para negócios em Passo Fundo/RS, região e São Paulo.",
+    "Landing pages para hotel, churrascaria, clínica e estética. Abre no celular, WhatsApp na cara, pronta para Instagram e tráfego pago. Passo Fundo/RS e São Paulo.",
 };
 
 export default function RootLayout({

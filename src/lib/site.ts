@@ -36,7 +36,7 @@ export type LandingDemo = {
   name: string;
   city: string;
   niche: string;
-  result: string;
+  caption: string;
   url: string;
   image: string;
 };
@@ -47,8 +47,8 @@ export const landings: LandingDemo[] = [
     name: "Turis Hotel",
     city: "Passo Fundo",
     niche: "Hotel",
-    result:
-      "Protótipo no lugar de site antigo ou inexistente — reserva pelo WhatsApp, no celular.",
+    caption:
+      "Tradição no Centro desde 1954. Este protótipo põe tarifa e reserva no WhatsApp, na primeira tela — no lugar do site institucional.",
     url: "https://turis-hotel-mu.vercel.app",
     image: "/portfolio/turis-hotel.png",
   },
@@ -57,8 +57,8 @@ export const landings: LandingDemo[] = [
     name: "Rio Hotel",
     city: "Passo Fundo",
     niche: "Hotel",
-    result:
-      "Protótipo no lugar de site antigo ou inexistente — reserva pelo WhatsApp, no celular.",
+    caption:
+      "Centro desde 1967, 83 apartamentos. O hotel não publica tabela de diárias — este protótipo manda a pessoa falar com a recepção no WhatsApp.",
     url: "https://rio-hotel.vercel.app",
     image: "/portfolio/rio-hotel.png",
   },
@@ -67,8 +67,8 @@ export const landings: LandingDemo[] = [
     name: "Ponteio Fattoria",
     city: "Lagoa Vermelha",
     niche: "Churrascaria",
-    result:
-      "Protótipo no lugar de site antigo ou inexistente — mesa pelo WhatsApp, no celular.",
+    caption:
+      "A casa vive no Instagram, na Capital Nacional do Churrasco. Este protótipo é a página que o anúncio deveria abrir.",
     url: "https://ponteio-fattoria.vercel.app",
     image: "/portfolio/ponteio-fattoria.png",
   },
@@ -77,8 +77,8 @@ export const landings: LandingDemo[] = [
     name: "LosDos Taqueria",
     city: "São Paulo · Vila Madalena",
     niche: "Restaurante",
-    result:
-      "Protótipo no lugar de site antigo ou inexistente — pedido e contato pelo WhatsApp.",
+    caption:
+      "50 lugares na Harmonia. Este protótipo é a reserva no celular — não um cardápio PDF, não só o Insta.",
     url: "https://losdos-taqueria.vercel.app",
     image: "/portfolio/losdos-taqueria.png",
   },
@@ -87,8 +87,8 @@ export const landings: LandingDemo[] = [
     name: "La Rinconada",
     city: "São Paulo · Moema",
     niche: "Parrilla",
-    result:
-      "Protótipo no lugar de site antigo ou inexistente — reserva pelo WhatsApp, no celular.",
+    caption:
+      "Parrilla uruguaia, inauguração em 4 de setembro. Este protótipo é a reserva da abertura no WhatsApp.",
     url: "https://la-rinconada-zeta.vercel.app",
     image: "/portfolio/la-rinconada.png",
   },
@@ -97,8 +97,8 @@ export const landings: LandingDemo[] = [
     name: "João de Barro",
     city: "Erechim",
     niche: "Churrascaria",
-    result:
-      "Protótipo no lugar de site antigo ou inexistente — mesa pelo WhatsApp, no celular.",
+    caption:
+      "Churrascaria e pizzaria no Bela Vista. Este protótipo tira a mesa do telefone escondido e põe o WhatsApp na cara.",
     url: "https://joao-de-barro-pi.vercel.app",
     image: "/portfolio/joao-de-barro.png",
   },
@@ -107,8 +107,8 @@ export const landings: LandingDemo[] = [
     name: "Gaúcho Hotel",
     city: "Tapejara",
     niche: "Hotel",
-    result:
-      "Protótipo no lugar de site antigo ou inexistente — reserva pelo WhatsApp, no celular.",
+    caption:
+      "Na RS-467, a 1 km da cidade. A tabela antiga do site oficial não vale mais — este protótipo consulta a diária no WhatsApp.",
     url: "https://gaucho-hotel.vercel.app",
     image: "/portfolio/gaucho-hotel.png",
   },
@@ -117,8 +117,8 @@ export const landings: LandingDemo[] = [
     name: "Codex",
     city: "São Paulo · Pinheiros",
     niche: "Restaurante",
-    result:
-      "Protótipo no lugar de site antigo ou inexistente — pedido e contato pelo WhatsApp.",
+    caption:
+      "15 lugares, só sexta e sábado. Este protótipo é o pedido de reserva — a casa não confirma mesa na página.",
     url: "https://codex-two-ecru.vercel.app",
     image: "/portfolio/codex.png",
   },
@@ -127,8 +127,8 @@ export const landings: LandingDemo[] = [
     name: "Clínica Paulista",
     city: "São Paulo · Lapa",
     niche: "Fisioterapia",
-    result:
-      "Protótipo no lugar de site antigo ou inexistente — agendamento pelo WhatsApp.",
+    caption:
+      "Desde 2002 na Lapa. Este protótipo vai direto para o telefone: fisio por ordem de chegada, sem labirinto de especialidades.",
     url: "https://clinica-paulista.vercel.app",
     image: "/portfolio/clinica-paulista.png",
   },
@@ -137,8 +137,8 @@ export const landings: LandingDemo[] = [
     name: "Churrascaria Planalto",
     city: "Passo Fundo",
     niche: "Churrascaria",
-    result:
-      "Protótipo no lugar de site antigo ou inexistente — mesa pelo WhatsApp, no celular.",
+    caption:
+      "Sem site oficial e sem cardápio on-line. Este protótipo é o WhatsApp da Vila Jerônimo Coelho.",
     url: "https://churrascaria-planalto.vercel.app",
     image: "/portfolio/churrascaria-planalto.png",
   },
@@ -147,8 +147,8 @@ export const landings: LandingDemo[] = [
     name: "Chico Churrascaria",
     city: "Passo Fundo",
     niche: "Churrascaria",
-    result:
-      "Protótipo no lugar de site antigo ou inexistente — mesa pelo WhatsApp, no celular.",
+    caption:
+      "O domínio oficial estava fora do ar. Este protótipo reconstrói a casa no celular, com o telefone de reserva na cara.",
     url: "https://chico-churrascaria.vercel.app",
     image: "/portfolio/chico-churrascaria.png",
   },
@@ -157,8 +157,8 @@ export const landings: LandingDemo[] = [
     name: "Cheflera Estética",
     city: "Passo Fundo",
     niche: "Estética",
-    result:
-      "Protótipo no lugar de site antigo ou inexistente — agendamento pelo WhatsApp.",
+    caption:
+      "Depilação a laser, criolipólise, limpeza de pele. Este protótipo agenda pelo WhatsApp, no Centro.",
     url: "https://cheflera-estetica.vercel.app",
     image: "/portfolio/cheflera-estetica.png",
   },
@@ -167,8 +167,8 @@ export const landings: LandingDemo[] = [
     name: "Check-in Pilates",
     city: "São Paulo · Tatuapé",
     niche: "Pilates",
-    result:
-      "Protótipo no lugar de site antigo ou inexistente — aula experimental pelo WhatsApp.",
+    caption:
+      "Aula experimental na Francisco Marengo. Este protótipo é o agendamento no WhatsApp, não a ficha do Wellhub.",
     url: "https://checkin-pilates.vercel.app",
     image: "/portfolio/checkin-pilates.png",
   },
@@ -177,9 +177,13 @@ export const landings: LandingDemo[] = [
     name: "Balen Arquitetura",
     city: "Passo Fundo",
     niche: "Construtora",
-    result:
-      "Protótipo no lugar de site antigo ou inexistente — contato pelo WhatsApp, no celular.",
+    caption:
+      "Projeto e obra desde 1979. Este protótipo põe o telefone na primeira tela — não há WhatsApp público confirmado.",
     url: "https://balen-pi.vercel.app",
     image: "/portfolio/balen-arquitetura.png",
   },
 ];
+
+export function displayUrl(url: string) {
+  return url.replace(/^https?:\/\//, "");
+}

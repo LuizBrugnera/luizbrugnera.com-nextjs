@@ -11,6 +11,8 @@ const config: Config = {
   	extend: {
   		fontFamily: {
   			sans: ["var(--font-geist-sans)", "Arial", "Helvetica", "sans-serif"],
+  			serif: ["ui-serif", "Georgia", "Times New Roman", "serif"],
+  			mono: ["var(--font-geist-mono)", "ui-monospace", "monospace"],
   		},
   		colors: {
   			background: 'hsl(var(--background))',

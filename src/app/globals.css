@@ -4,35 +4,30 @@
 
 html {
   scroll-behavior: smooth;
-}
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+  color-scheme: dark;
 }
 
 @layer base {
   :root {
-    --background: 40 33% 97%;
-    --foreground: 30 10% 8%;
-    --card: 40 40% 99%;
-    --card-foreground: 30 10% 8%;
-    --popover: 40 40% 99%;
-    --popover-foreground: 30 10% 8%;
-    --primary: 168 77% 31%;
-    --primary-foreground: 0 0% 100%;
-    --secondary: 40 20% 93%;
-    --secondary-foreground: 30 10% 8%;
-    --muted: 40 18% 94%;
-    --muted-foreground: 30 8% 38%;
-    --accent: 40 18% 92%;
-    --accent-foreground: 30 10% 8%;
+    --background: 30 10% 5%;
+    --foreground: 40 20% 94%;
+    --card: 30 8% 8%;
+    --card-foreground: 40 20% 94%;
+    --popover: 30 8% 8%;
+    --popover-foreground: 40 20% 94%;
+    --primary: 142 64% 49%;
+    --primary-foreground: 142 64% 8%;
+    --secondary: 30 8% 12%;
+    --secondary-foreground: 40 20% 94%;
+    --muted: 30 8% 12%;
+    --muted-foreground: 32 8% 58%;
+    --accent: 30 8% 14%;
+    --accent-foreground: 40 20% 94%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
-    --border: 36 16% 86%;
-    --input: 36 16% 86%;
-    --ring: 168 77% 31%;
+    --border: 30 8% 16%;
+    --input: 30 8% 16%;
+    --ring: 142 64% 49%;
     --radius: 0.75rem;
   }
 }
@@ -44,5 +39,7 @@ html {
   body {
     @apply bg-background text-foreground;
     font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+    background-color: #0c0b0a;
+    color: #f3efe6;
   }
 }
