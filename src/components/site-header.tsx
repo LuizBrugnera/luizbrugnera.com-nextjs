@@ -3,6 +3,7 @@ import { whatsappHref } from "@/lib/site";
 const nav = [
   { href: "#oferta", label: "Oferta" },
   { href: "#prototipos", label: "Protótipos" },
+  { href: "#experiencia", label: "Experiência" },
   { href: "#contato", label: "Contato" },
 ];
 

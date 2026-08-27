@@ -12,6 +12,25 @@ export const GITHUB_URL = "https://github.com/LuizBrugnera";
 export const LINKEDIN_URL =
   "https://www.linkedin.com/in/luiz-ricardo-brugnera-8b6810236/";
 
+export type Experience = {
+  company: string;
+  period: string;
+  current: boolean;
+};
+
+export const experience: Experience[] = [
+  {
+    company: "Tissage",
+    period: "2025–2026",
+    current: true,
+  },
+  {
+    company: "Zeeway",
+    period: "2025–2026",
+    current: false,
+  },
+];
+
 export type LandingDemo = {
   slug: string;
   name: string;

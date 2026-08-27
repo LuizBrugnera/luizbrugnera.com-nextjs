@@ -6,6 +6,7 @@ import {
   EMAIL,
   GITHUB_URL,
   LINKEDIN_URL,
+  experience,
   landings,
   whatsappHref,
 } from "@/lib/site";
@@ -110,6 +111,44 @@ export default function Home() {
               isso também. Combinamos o escopo no WhatsApp, sem pacote genérico
               nesta página.
             </p>
+          </div>
+        </section>
+
+        <section
+          id="experiencia"
+          className="scroll-mt-20 border-t border-border bg-muted/40 py-16 sm:py-20"
+        >
+          <div className="mx-auto max-w-6xl px-4 sm:px-6">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#128C7E]">
+              Experiência
+            </p>
+            <h2 className="mt-3 max-w-2xl text-3xl font-semibold tracking-tight sm:text-4xl">
+              Onde trabalha
+            </h2>
+            <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground">
+              Em 2025–2026 esteve na Tissage e na Zeeway. Hoje segue só na
+              Tissage.
+            </p>
+            <ul className="mt-10 divide-y divide-border overflow-hidden rounded-2xl border border-border bg-card">
+              {experience.map((item) => (
+                <li
+                  key={item.company}
+                  className="flex flex-col gap-1 px-5 py-5 sm:flex-row sm:items-baseline sm:justify-between sm:gap-4"
+                >
+                  <p className="text-lg font-semibold tracking-tight">
+                    {item.company}
+                  </p>
+                  <p className="text-sm text-muted-foreground">
+                    {item.period}
+                    {item.current ? (
+                      <span className="ml-2 font-semibold text-[#128C7E]">
+                        atual
+                      </span>
+                    ) : null}
+                  </p>
+                </li>
+              ))}
+            </ul>
           </div>
         </section>
 
