@@ -1,220 +1,265 @@
-import { Smartphone, MessageCircle, Megaphone, Wrench } from "lucide-react";
-import { SiteHeader } from "@/components/site-header";
-import { PortfolioGrid } from "@/components/portfolio-grid";
-import { StickyWhatsApp } from "@/components/sticky-whatsapp";
+"use client";
+
+import { useState, useEffect } from "react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
 import {
-  EMAIL,
-  GITHUB_URL,
-  LINKEDIN_URL,
-  experience,
-  landings,
-  whatsappHref,
-} from "@/lib/site";
+  GithubIcon,
+  LinkedinIcon,
+  MailIcon,
+  MoonIcon,
+  PhoneIcon,
+  SunIcon,
+} from "lucide-react";
+import { motion } from "framer-motion";
+import { skills, timeline } from "./data";
+import Timeline from "@/components/Timeline";
+import ProjectsCarousel from "@/components/ProjectsCarousel";
+import { SendMail } from "@/components/SendMail";
 
-const offer = [
-  {
-    icon: Smartphone,
-    title: "Abre no celular",
-    body: "A página é feita para o polegar. Quem vem do Instagram ou do anúncio vê o essencial sem pinçar zoom.",
-  },
-  {
-    icon: MessageCircle,
-    title: "WhatsApp na cara",
-    body: "Botão visível, inclusive fixo. O clique abre a conversa — reserva, pedido ou agendamento.",
-  },
-  {
-    icon: Megaphone,
-    title: "Pronta para anúncio",
-    body: "Landing enxuta para Instagram e tráfego pago: o visitante cai, entende o negócio e fala com você.",
-  },
-  {
-    icon: Wrench,
-    title: "Sites e sistemas simples",
-    body: "Além da landing, monto sites institucionais e sistemas pequenos para o dia a dia do negócio local.",
-  },
-];
+export default function Portfolio() {
+  const [theme, setTheme] = useState("light");
+  const [typedText, setTypedText] = useState("");
 
-export default function Home() {
+  const fullText = "Desenvolvedor Full Stack";
+  const sendToLink = (link: string) => {
+    window.open(link, "_blank");
+  };
+
+  useEffect(() => {
+    const typeText = async () => {
+      for (let i = 0; i <= fullText.length; i++) {
+        setTypedText(fullText.slice(0, i));
+        await new Promise((resolve) => setTimeout(resolve, 100));
+      }
+    };
+
+    typeText();
+  }, []);
+
+  const toggleTheme = () => {
+    setTheme(theme === "light" ? "dark" : "light");
+    document.documentElement.classList.toggle("dark");
+  };
+
   return (
-    <div id="topo" className="flex min-h-screen flex-col pb-24">
-      <SiteHeader />
-
-      <main className="flex-1">
-        <section className="mx-auto max-w-6xl px-4 pb-16 pt-12 sm:px-6 sm:pb-24 sm:pt-20">
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#128C7E]">
-            Passo Fundo / RS · região · São Paulo
-          </p>
-          <h1 className="mt-4 max-w-3xl text-4xl font-semibold leading-[1.1] tracking-tight sm:text-5xl lg:text-6xl">
-            Landing que abre no celular, WhatsApp na cara, pronta para anúncio.
+    <div
+      className={`flex flex-col min-h-screen ${theme === "dark" ? "dark" : ""}`}
+    >
+      <header className="sticky top-0 z-10 bg-background border-b dark:bg-gray-800 dark:border-gray-700">
+        <div className="container mx-auto px-4 py-4 flex justify-between items-center">
+          <h1 className="text-2xl font-bold dark:text-white">
+            Luiz Ricardo Brugnera
           </h1>
-          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground">
-            Sou o Luiz Ricardo Brugnera. Faço landing pages mobile-first para
-            negócios locais — hotel, restaurante, clínica, estética, construtora
-            — pensadas para Instagram e tráfego pago. Também faço sites e
-            sistemas simples.
-          </p>
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
+          <nav className="hidden md:flex space-x-4">
             <a
-              href={whatsappHref}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex h-12 items-center justify-center rounded-full bg-[#128C7E] px-6 text-base font-semibold text-white hover:bg-[#0f7a6e]"
+              href="#projects"
+              className="hover:text-primary dark:text-gray-300 dark:hover:text-white"
             >
-              Falar no WhatsApp
+              Projetos
             </a>
             <a
-              href="#prototipos"
-              className="inline-flex h-12 items-center justify-center rounded-full border border-border bg-background px-6 text-base font-semibold hover:bg-muted"
+              href="#skills"
+              className="hover:text-primary dark:text-gray-300 dark:hover:text-white"
             >
-              Ver {landings.length} protótipos
+              Habilidades
             </a>
+            <a
+              href="#timeline"
+              className="hover:text-primary dark:text-gray-300 dark:hover:text-white"
+            >
+              Timeline
+            </a>
+            <a
+              href="#contact"
+              className="hover:text-primary dark:text-gray-300 dark:hover:text-white"
+            >
+              Contato
+            </a>
+          </nav>
+          <Button variant="ghost" size="icon" onClick={toggleTheme}>
+            {theme === "light" ? (
+              <MoonIcon className="h-6 w-6" />
+            ) : (
+              <SunIcon className="h-6 w-6" />
+            )}
+          </Button>
+        </div>
+      </header>
+
+      <main className="flex-grow dark:bg-gray-900">
+        <section id="about" className="relative py-20 overflow-hidden">
+          <div className="absolute inset-0 z-0">
+            <div className="absolute inset-0 bg-gradient-to-br from-blue-400 to-purple-500 dark:from-purple-700 dark:to-purple-900 opacity-80"></div>
+            <motion.div
+              className="absolute inset-0"
+              animate={{
+                backgroundPosition: ["0% 0%", "100% 100%"],
+              }}
+              transition={{
+                duration: 10,
+                repeat: Infinity,
+                repeatType: "reverse",
+              }}
+              style={{
+                backgroundImage:
+                  'url("data:image/svg+xml,%3Csvg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M21.184 20c.357-.13.72-.264 1.088-.402l1.768-.661C33.64 15.347 39.647 14 50 14c10.271 0 15.362 1.222 24.629 4.928.955.383 1.869.74 2.75 1.072h6.225c-2.51-.73-5.139-1.691-8.233-2.928C65.888 13.278 60.562 12 50 12c-10.626 0-16.855 1.397-26.66 5.063l-1.767.662c-2.475.923-4.66 1.674-6.724 2.275h6.335zm0-20C13.258 2.892 8.077 4 0 4V2c5.744 0 9.951-.574 14.85-2h6.334zM77.38 0C85.239 2.966 90.502 4 100 4V2c-6.842 0-11.386-.542-16.396-2h-6.225zM0 14c8.44 0 13.718-1.21 22.272-4.402l1.768-.661C33.64 5.347 39.647 4 50 4c10.271 0 15.362 1.222 24.629 4.928C84.112 12.722 89.438 14 100 14v-2c-10.271 0-15.362-1.222-24.629-4.928C65.888 3.278 60.562 2 50 2 39.374 2 33.145 3.397 23.34 7.063l-1.767.662C13.223 10.84 8.163 12 0 12v2z" fill="%23ffffff" fill-opacity="0.1" fill-rule="evenodd"/%3E%3C/svg%3E")',
+                backgroundSize: "100px 100px",
+              }}
+            />
+            <motion.div
+              className="absolute inset-0 opacity-30"
+              animate={{
+                scale: [1, 1.1, 1],
+              }}
+              transition={{
+                duration: 25,
+                repeat: Infinity,
+                repeatType: "reverse",
+              }}
+              style={{
+                backgroundImage:
+                  "radial-gradient(circle, rgba(255,255,255,0.8) 10%, transparent 10%)",
+                backgroundPosition: "0 0",
+                backgroundSize: "30px 30px",
+              }}
+            />
+          </div>
+          <div className="container mx-auto px-4 text-center relative z-10">
+            <motion.h2
+              className="text-4xl font-bold mb-4 text-white "
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              whileHover={{ scale: 1.03 }}
+            >
+              Olá, eu sou Luiz Ricardo Brugnera
+            </motion.h2>
+            <motion.p
+              className="text-xl mb-8 text-white"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+            >
+              <span className="font-mono mr-2">{typedText}</span>
+              <span className="animate-blink">|</span>
+            </motion.p>
+            <motion.div
+              className="flex justify-center space-x-4"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+            >
+              <Button
+                className="bg-white text-purple-600 hover:bg-purple-100"
+                onClick={() => sendToLink("https://github.com/LuizBrugnera")}
+              >
+                <GithubIcon className="mr-2 h-4 w-4" /> GitHub
+              </Button>
+              <Button
+                className="bg-white text-purple-600 hover:bg-purple-100"
+                onClick={() =>
+                  sendToLink(
+                    "https://www.linkedin.com/in/luiz-ricardo-brugnera-8b6810236/"
+                  )
+                }
+              >
+                <LinkedinIcon className="mr-2 h-4 w-4" /> LinkedIn
+              </Button>
+              <Button
+                className="bg-white text-purple-600 hover:bg-purple-100"
+                onClick={() =>
+                  sendToLink(
+                    "https://wa.me/555499276395?text=Ol%C3%A1%2C%20vim%20pelo%20seu%20portf%C3%B3lio%21"
+                  )
+                }
+              >
+                <PhoneIcon className="mr-2 h-4 w-4" /> Whatsapp
+              </Button>
+            </motion.div>
           </div>
         </section>
+        <ProjectsCarousel />
 
-        <section id="oferta" className="scroll-mt-20 border-t border-border py-16 sm:py-20">
-          <div className="mx-auto max-w-6xl px-4 sm:px-6">
-            <h2 className="max-w-2xl text-3xl font-semibold tracking-tight sm:text-4xl">
-              O que o negócio ganha
+        <section id="skills" className="py-20 bg-muted dark:bg-gray-800">
+          <div className="container mx-auto px-4">
+            <h2 className="text-3xl font-bold mb-8 text-center dark:text-white">
+              Habilidades
             </h2>
-            <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground">
-              Uma página que substitui site morto, antigo ou inexistente. Sem
-              blog, sem labirinto: o visitante entende e chama no WhatsApp.
-            </p>
-            <ul className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2">
-              {offer.map((item) => (
-                <li
-                  key={item.title}
-                  className="rounded-2xl border border-border bg-card p-6 shadow-sm"
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+              {skills.map((skill, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.1 }}
                 >
-                  <item.icon className="h-6 w-6 text-[#128C7E]" aria-hidden />
-                  <h3 className="mt-4 text-lg font-semibold">{item.title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                    {item.body}
-                  </p>
-                </li>
+                  <Card className="text-center  dark:bg-gray-700">
+                    <CardContent>
+                      <div className="flex items-center justify-center">
+                        <img
+                          src={skill.icon}
+                          alt={skill.name}
+                          className="h-12 w-12 mt-6"
+                        />
+                      </div>
+                      <p className="font-semibold dark:text-white">
+                        {skill.name}
+                      </p>
+                    </CardContent>
+                  </Card>
+                </motion.div>
               ))}
-            </ul>
+            </div>
           </div>
         </section>
-
-        <PortfolioGrid />
-
-        <section className="border-t border-border py-16 sm:py-20">
-          <div className="mx-auto max-w-6xl px-4 sm:px-6">
-            <h2 className="max-w-2xl text-3xl font-semibold tracking-tight sm:text-4xl">
-              Também sites e sistemas pequenos
-            </h2>
-            <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground">
-              A landing é o caminho mais rápido para quem precisa aparecer no
-              celular e atender no WhatsApp. Se o negócio pede um site maior ou
-              um sistema simples — agenda, pedidos, painel interno — eu monto
-              isso também. Combinamos o escopo no WhatsApp, sem pacote genérico
-              nesta página.
-            </p>
-          </div>
-        </section>
-
-        <section
-          id="experiencia"
-          className="scroll-mt-20 border-t border-border bg-muted/40 py-16 sm:py-20"
-        >
-          <div className="mx-auto max-w-6xl px-4 sm:px-6">
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#128C7E]">
-              Experiência
-            </p>
-            <h2 className="mt-3 max-w-2xl text-3xl font-semibold tracking-tight sm:text-4xl">
-              Onde trabalha
-            </h2>
-            <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground">
-              Em 2025–2026 esteve na Tissage e na Zeeway. Hoje segue só na
-              Tissage.
-            </p>
-            <ul className="mt-10 divide-y divide-border overflow-hidden rounded-2xl border border-border bg-card">
-              {experience.map((item) => (
-                <li
-                  key={item.company}
-                  className="flex flex-col gap-1 px-5 py-5 sm:flex-row sm:items-baseline sm:justify-between sm:gap-4"
-                >
-                  <p className="text-lg font-semibold tracking-tight">
-                    {item.company}
-                  </p>
-                  <p className="text-sm text-muted-foreground">
-                    {item.period}
-                    {item.current ? (
-                      <span className="ml-2 font-semibold text-[#128C7E]">
-                        atual
-                      </span>
-                    ) : null}
-                  </p>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </section>
-
-        <section
-          id="contato"
-          className="scroll-mt-20 border-t border-border bg-[#111110] py-16 text-[#f4f1ea] sm:py-20"
-        >
-          <div className="mx-auto max-w-6xl px-4 sm:px-6">
-            <h2 className="max-w-2xl text-3xl font-semibold tracking-tight sm:text-4xl">
-              Manda o Instagram do negócio. Eu devolvo a landing no celular.
-            </h2>
-            <p className="mt-4 max-w-xl text-base leading-relaxed text-[#c9c3b5]">
-              Atendo Passo Fundo, a região e São Paulo. O próximo passo é uma
-              conversa no WhatsApp.
-            </p>
-            <a
-              href={whatsappHref}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-8 inline-flex h-12 items-center justify-center rounded-full bg-[#25D366] px-6 text-base font-semibold text-[#073b1a] hover:bg-[#20bd5a]"
-            >
-              Chamar no WhatsApp
-            </a>
-            <p className="mt-6 text-sm text-[#9a9488]">
-              E-mail:{" "}
-              <a href={`mailto:${EMAIL}`} className="underline hover:text-[#f4f1ea]">
-                {EMAIL}
-              </a>
-            </p>
-          </div>
-        </section>
+        <Timeline />
+        <SendMail />
       </main>
 
-      <footer className="border-t border-border py-8">
-        <div className="mx-auto flex max-w-6xl flex-col gap-4 px-4 text-sm text-muted-foreground sm:flex-row sm:items-center sm:justify-between sm:px-6">
-          <p>© {new Date().getFullYear()} Luiz Ricardo Brugnera</p>
-          <div className="flex gap-4">
-            <a
-              href={GITHUB_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-foreground"
-            >
-              GitHub
-            </a>
-            <a
-              href={LINKEDIN_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-foreground"
-            >
-              LinkedIn
-            </a>
-            <a
-              href={whatsappHref}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-foreground"
-            >
-              WhatsApp
-            </a>
+      <footer className="bg-gray-100 dark:bg-gray-800 py-8">
+        <div className="container mx-auto px-4">
+          <div className="flex flex-col md:flex-row justify-between items-center">
+            <p className="text-center md:text-left dark:text-white">
+              &copy; 2024 Luiz Ricardo Brugnera. Todos os direitos reservados.
+            </p>
+            <div className="flex space-x-4 mt-4 md:mt-0">
+              <Button
+                variant="ghost"
+                size="icon"
+                className="dark:text-white"
+                onClick={() => sendToLink("https://github.com/LuizBrugnera")}
+              >
+                <GithubIcon className="h-5 w-5" />
+              </Button>
+              <Button
+                variant="ghost"
+                size="icon"
+                className="dark:text-white"
+                onClick={() =>
+                  sendToLink(
+                    "https://www.linkedin.com/in/luiz-ricardo-brugnera-8b6810236/"
+                  )
+                }
+              >
+                <LinkedinIcon className="h-5 w-5" />
+              </Button>
+              <Button
+                variant="ghost"
+                size="icon"
+                className="dark:text-white"
+                onClick={() =>
+                  sendToLink(
+                    "https://wa.me/555499276395?text=Ol%C3%A1%2C%20vim%20pelo%20seu%20portf%C3%B3lio%21"
+                  )
+                }
+              >
+                <PhoneIcon className="h-5 w-5" />
+              </Button>
+            </div>
           </div>
         </div>
       </footer>
-
-      <StickyWhatsApp />
     </div>
   );
 }
