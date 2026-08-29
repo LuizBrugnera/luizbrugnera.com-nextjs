@@ -6,13 +6,12 @@ import { Card, CardContent } from "@/components/ui/card";
 import {
   GithubIcon,
   LinkedinIcon,
-  MailIcon,
   MoonIcon,
   PhoneIcon,
   SunIcon,
 } from "lucide-react";
 import { motion } from "framer-motion";
-import { skills, timeline } from "./data";
+import { skills } from "./data";
 import Timeline from "@/components/Timeline";
 import ProjectsCarousel from "@/components/ProjectsCarousel";
 import { SendMail } from "@/components/SendMail";
@@ -68,7 +67,7 @@ export default function Portfolio() {
               href="#timeline"
               className="hover:text-primary dark:text-gray-300 dark:hover:text-white"
             >
-              Timeline
+              Jornada
             </a>
             <a
               href="#contact"
@@ -127,7 +126,7 @@ export default function Portfolio() {
           </div>
           <div className="container mx-auto px-4 text-center relative z-10">
             <motion.h2
-              className="text-4xl font-bold mb-4 text-white "
+              className="text-4xl md:text-5xl font-bold tracking-tight mb-4 text-white"
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
@@ -136,7 +135,7 @@ export default function Portfolio() {
               Olá, eu sou Luiz Ricardo Brugnera
             </motion.h2>
             <motion.p
-              className="text-xl mb-8 text-white"
+              className="text-xl md:text-2xl mb-8 text-white"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
@@ -174,7 +173,7 @@ export default function Portfolio() {
                   )
                 }
               >
-                <PhoneIcon className="mr-2 h-4 w-4" /> Whatsapp
+                <PhoneIcon className="mr-2 h-4 w-4" /> WhatsApp
               </Button>
             </motion.div>
           </div>
@@ -183,7 +182,7 @@ export default function Portfolio() {
 
         <section id="skills" className="py-20 bg-muted dark:bg-gray-800">
           <div className="container mx-auto px-4">
-            <h2 className="text-3xl font-bold mb-8 text-center dark:text-white">
+            <h2 className="text-3xl font-bold mb-8 text-center tracking-tight dark:text-white">
               Habilidades
             </h2>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
@@ -194,16 +193,16 @@ export default function Portfolio() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1 }}
                 >
-                  <Card className="text-center  dark:bg-gray-700">
-                    <CardContent>
+                  <Card className="text-center dark:bg-gray-700">
+                    <CardContent className="pt-6">
                       <div className="flex items-center justify-center">
                         <img
                           src={skill.icon}
                           alt={skill.name}
-                          className="h-12 w-12 mt-6"
+                          className="h-12 w-12"
                         />
                       </div>
-                      <p className="font-semibold dark:text-white">
+                      <p className="mt-3 font-semibold dark:text-white">
                         {skill.name}
                       </p>
                     </CardContent>
@@ -221,7 +220,7 @@ export default function Portfolio() {
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-center md:text-left dark:text-white">
-              &copy; 2024 Luiz Ricardo Brugnera. Todos os direitos reservados.
+              &copy; 2026 Luiz Ricardo Brugnera. Todos os direitos reservados.
             </p>
             <div className="flex space-x-4 mt-4 md:mt-0">
               <Button

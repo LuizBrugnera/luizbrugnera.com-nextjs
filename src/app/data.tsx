@@ -18,10 +18,17 @@ export const skills = [
   { name: "Docker", icon: dockerIcon.src as string },
 ];
 
-export const timeline = [
+export type TimelineItem = {
+  year: string;
+  title: string;
+  description: string;
+  achievements?: string[];
+};
+
+export const timeline: TimelineItem[] = [
   {
     year: "2021",
-    title: "Iniciou a faculdade no IFSUL - Passo Fundo",
+    title: "Iniciei a faculdade no IFSUL, em Passo Fundo",
     description:
       "Comecei minha jornada na faculdade, trabalhando principalmente com JavaScript e React.",
     achievements: [
@@ -34,17 +41,17 @@ export const timeline = [
     year: "2022",
     title: "Entrei como bolsista de desenvolvimento no IFSUL",
     description:
-      "Após um ano de aprendizado, fui selecionado para uma bolsa para desenvolverdor, nela foi feito um projeto React e Node.js com foco em acessibilidade do usuário.",
+      "Após um ano de aprendizado, fui selecionado para uma bolsa de desenvolvedor. Nessa bolsa desenvolvi um projeto React e Node.js com foco em acessibilidade.",
     achievements: [
       "Desenvolvi uma API RESTful com Node.js",
       "Implementei testes automatizados em projetos existentes",
-      "Aprendi a trabalhar em um codigo com varios desenvolvedores",
+      "Aprendi a trabalhar em um código com vários desenvolvedores",
     ],
   },
   {
     year: "2023",
     title:
-      "Entrei como estagiário de desenvolvimento REACT | NODE.JS | SCRUM na COMPASS ",
+      "Entrei como estagiário de desenvolvimento React, Node.js e Scrum na Compass",
     description:
       "Neste estágio, aprendi a trabalhar em equipes, liderar projetos e refinar minhas habilidades de desenvolvimento.",
     achievements: [
@@ -55,67 +62,174 @@ export const timeline = [
   },
   {
     year: "2024",
-    title: "Entrei como desenvolvedor full stack na TWO COMMERCE",
+    title: "Entrei como desenvolvedor full stack na Two Commerce",
     description:
-      "Meu trabalho no projeto de agendamento via whatsapp SCHEDY, nele consegui muitas experiências com desenvolvimento full stack com Node.js e NestJS.",
+      "Meu trabalho no projeto de agendamento via WhatsApp, o Schedy. Nele ganhei muita experiência com desenvolvimento full stack com Node.js e NestJS.",
     achievements: [
       "Participei de decisões arquiteturais do projeto",
-      "Implementei práticas de DevOps o deploy na AWS",
-      "Aprendi bastante ao implementar filas, cron jobs, autenticação, gerenciamento de seções, etc...",
+      "Implementei práticas de DevOps e o deploy na AWS",
+      "Aprendi bastante ao implementar filas, cron jobs, autenticação, gerenciamento de sessões, etc.",
     ],
+  },
+  {
+    year: "2025",
+    title: "Zeeway",
+    description: "Trabalhei na Zeeway em 2025–2026.",
+  },
+  {
+    year: "2026",
+    title: "Tissage",
+    description: "Trabalho na Tissage em 2025–2026.",
   },
 ];
 
-export const projects = [
+export type Project = {
+  id: number;
+  title: string;
+  description: string;
+  image: string;
+  technologies: string[];
+  demoLink: string;
+  githubLink?: string;
+};
+
+const landingTech = ["Next.js", "Tailwind CSS"];
+
+export const projects: Project[] = [
   {
     id: 1,
-    title: "E-commerce Platform",
-    description:
-      "A full-featured e-commerce platform built with Next.js, featuring real-time inventory management, user authentication, and integrated payment processing.",
-    image: "/placeholder.svg?height=200&width=300",
-    technologies: ["Next.js", "React", "Node.js", "MongoDB", "Stripe"],
-    demoLink: "https://example-ecommerce.com",
-    githubLink: "https://github.com/username/ecommerce-platform",
+    title: "Ponteio Fattoria",
+    description: "Site da churrascaria Ponteio Fattoria, em Lagoa Vermelha (RS).",
+    image: "/portfolio/ponteio-fattoria.jpg",
+    technologies: landingTech,
+    demoLink: "https://ponteio-fattoria.vercel.app",
   },
   {
     id: 2,
-    title: "Administração de histórico de Pacientes App",
-    description:
-      "A collaborative task management application with real-time updates, drag-and-drop functionality, and team collaboration features.",
-    image: "/placeholder.svg?height=200&width=300",
-    technologies: ["React", "Firebase", "TailwindCSS", "Material-UI"],
-    demoLink:
-      "https://patient-history-8hk4q7gl7-diabosmais22gmailcoms-projects.vercel.app/",
-    githubLink: "https://github.com/LuizBrugnera/patient-history",
+    title: "Chico Churrascaria",
+    description: "Site da Chico Churrascaria, em Passo Fundo (RS).",
+    image: "/portfolio/chico-churrascaria.jpg",
+    technologies: landingTech,
+    demoLink: "https://chico-churrascaria.vercel.app",
   },
   {
     id: 3,
-    title: "Weather Forecast Dashboard",
-    description:
-      "An interactive weather dashboard that provides real-time weather data and forecasts for multiple locations.",
-    image: "/placeholder.svg?height=200&width=300",
-    technologies: ["Vue.js", "Express", "OpenWeatherMap API", "Chart.js"],
-    demoLink: "https://example-weather.com",
-    githubLink: "https://github.com/username/weather-dashboard",
+    title: "LosDos Taqueria",
+    description: "Site da taqueria LosDos, em Vila Madalena, São Paulo.",
+    image: "/portfolio/losdos-taqueria.jpg",
+    technologies: landingTech,
+    demoLink: "https://losdos-taqueria.vercel.app",
   },
   {
     id: 4,
-    title: "Social Media Analytics Tool",
-    description:
-      "A comprehensive analytics tool for social media managers to track engagement, growth, and campaign performance across multiple platforms.",
-    image: "/placeholder.svg?height=200&width=300",
-    technologies: ["Angular", "Django", "PostgreSQL", "D3.js"],
-    demoLink: "https://example-analytics.com",
-    githubLink: "https://github.com/username/social-analytics",
+    title: "Cheflera Estética e Laser",
+    description: "Site da Cheflera Estética e Laser, em Passo Fundo (RS).",
+    image: "/portfolio/cheflera-estetica.jpg",
+    technologies: landingTech,
+    demoLink: "https://cheflera-estetica.vercel.app",
   },
   {
     id: 5,
-    title: "Fitness Tracking App",
+    title: "Clínica Paulista",
     description:
-      "A mobile-first fitness tracking application that allows users to log workouts, track progress, and set fitness goals.",
-    image: "/placeholder.svg?height=200&width=300",
-    technologies: ["React Native", "GraphQL", "Apollo", "MongoDB"],
-    demoLink: "https://example-fitness.com",
-    githubLink: "https://github.com/username/fitness-tracker",
+      "Site da Clínica Paulista de fisioterapia, na Lapa, em São Paulo.",
+    image: "/portfolio/clinica-paulista.jpg",
+    technologies: landingTech,
+    demoLink: "https://clinica-paulista.vercel.app",
+  },
+  {
+    id: 6,
+    title: "João de Barro",
+    description:
+      "Site da churrascaria e pizzaria João de Barro, em Erechim (RS).",
+    image: "/portfolio/joao-de-barro.jpg",
+    technologies: landingTech,
+    demoLink: "https://joao-de-barro-pi.vercel.app",
+  },
+  {
+    id: 7,
+    title: "Codex",
+    description: "Site do restaurante Codex, em Pinheiros, São Paulo.",
+    image: "/portfolio/codex.jpg",
+    technologies: landingTech,
+    demoLink: "https://codex-two-ecru.vercel.app",
+  },
+  {
+    id: 8,
+    title: "La Rinconada",
+    description:
+      "Site da churrascaria uruguaia La Rinconada, em Moema, São Paulo.",
+    image: "/portfolio/la-rinconada.jpg",
+    technologies: landingTech,
+    demoLink: "https://la-rinconada-zeta.vercel.app",
+  },
+  {
+    id: 9,
+    title: "Cefip",
+    description:
+      "Site da Clínica CEFIP de pilates, RPG e fisioterapia, no Ipiranga, em São Paulo.",
+    image: "/portfolio/cefip.jpg",
+    technologies: landingTech,
+    demoLink: "https://cefip.vercel.app",
+  },
+  {
+    id: 10,
+    title: "Churrascaria Planalto",
+    description: "Site da Churrascaria Planalto, em Passo Fundo (RS).",
+    image: "/portfolio/churrascaria-planalto.jpg",
+    technologies: landingTech,
+    demoLink: "https://churrascaria-planalto.vercel.app",
+  },
+  {
+    id: 11,
+    title: "Gaúcho Hotel",
+    description: "Site do Gaúcho Hotel, em Tapejara (RS).",
+    image: "/portfolio/gaucho-hotel.jpg",
+    technologies: landingTech,
+    demoLink: "https://gaucho-hotel.vercel.app",
+  },
+  {
+    id: 12,
+    title: "Rio Hotel",
+    description: "Site do Rio Hotel, no centro de Passo Fundo (RS).",
+    image: "/portfolio/rio-hotel.jpg",
+    technologies: landingTech,
+    demoLink: "https://rio-hotel.vercel.app",
+  },
+  {
+    id: 13,
+    title: "Turis Hotel",
+    description: "Site do Turis Hotel, no centro de Passo Fundo (RS).",
+    image: "/portfolio/turis-hotel.jpg",
+    technologies: landingTech,
+    demoLink: "https://turis-hotel-mu.vercel.app",
+  },
+  {
+    id: 14,
+    title: "Balen Arquitetura",
+    description:
+      "Site da Balen Arquitetura e Engenharia, em Passo Fundo (RS).",
+    image: "/portfolio/balen-arquitetura.jpg",
+    technologies: landingTech,
+    demoLink: "https://balen-pi.vercel.app",
+  },
+  {
+    id: 15,
+    title: "Check-in Pilates",
+    description:
+      "Site do estúdio Check-in Pilates & Yoga, no Tatuapé, em São Paulo.",
+    image: "/portfolio/checkin-pilates.jpg",
+    technologies: landingTech,
+    demoLink: "https://checkin-pilates.vercel.app",
+  },
+  {
+    id: 16,
+    title: "Administração de histórico de Pacientes",
+    description:
+      "App para registrar histórico de pacientes, tratamentos e feedbacks.",
+    image: "/portfolio/patient-history.jpg",
+    technologies: ["React", "TypeScript", "Tailwind CSS", "Firebase"],
+    demoLink: "https://patient-history-seven.vercel.app",
+    githubLink: "https://github.com/LuizBrugnera/patient-history",
   },
 ];

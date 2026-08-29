@@ -14,7 +14,7 @@ export default function Timeline() {
   return (
     <section id="timeline" className="py-20 bg-gray-50 dark:bg-gray-900">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold mb-12 text-center dark:text-white">
+        <h2 className="text-3xl font-bold mb-12 text-center tracking-tight dark:text-white">
           Minha Jornada
         </h2>
         <div className="relative z-0">
@@ -32,8 +32,8 @@ export default function Timeline() {
             >
               <div className="hidden md:block w-5/12"></div>
 
-              <div className="z-20 flex items-center justify-center w-10 h-10 bg-blue-500 rounded-full md:absolute md:left-1/2 md:transform md:-translate-x-1/2">
-                <h3 className="text-lg font-semibold text-white">
+              <div className="z-20 flex items-center justify-center min-w-10 h-10 px-2 bg-blue-500 rounded-full md:absolute md:left-1/2 md:transform md:-translate-x-1/2">
+                <h3 className="text-sm font-semibold text-white">
                   {item.year}
                 </h3>
               </div>
@@ -51,16 +51,18 @@ export default function Timeline() {
                     {item.description}
                   </CardDescription>
                 </CardHeader>
-                <CardContent>
-                  <h4 className="font-semibold mb-2 dark:text-white">
-                    Principais conquistas:
-                  </h4>
-                  <ul className="list-disc pl-5 space-y-1 dark:text-gray-300">
-                    {item.achievements.map((achievement, idx) => (
-                      <li key={idx}>{achievement}</li>
-                    ))}
-                  </ul>
-                </CardContent>
+                {item.achievements && item.achievements.length > 0 ? (
+                  <CardContent>
+                    <h4 className="font-semibold mb-2 dark:text-white">
+                      Principais conquistas:
+                    </h4>
+                    <ul className="list-disc pl-5 space-y-1 dark:text-gray-300">
+                      {item.achievements.map((achievement) => (
+                        <li key={achievement}>{achievement}</li>
+                      ))}
+                    </ul>
+                  </CardContent>
+                ) : null}
               </Card>
             </motion.div>
           ))}
